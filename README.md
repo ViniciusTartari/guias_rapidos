@@ -10,7 +10,7 @@
 Lista de guias:
 
 - Técnicas de abreviação de códigos JavaScript;
-
+- Guia (quase) completo de SCSS-Sass
 ---
 
-_Última atualização em: 26 de agosto de 2019_
+_Última atualização em: 30 de agosto de 2019_
