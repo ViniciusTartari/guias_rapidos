@@ -6,17 +6,17 @@
 
 A nomeação do BEM fornece três benefícios específicos:
 
-* Comunica propósito ou função;
-* Comunica a estrutura do componente;
-* Ele define um baixo nível consistente de especificidade para os seletores de estilo.
+- Comunica propósito ou função;
+- Comunica a estrutura do componente;
+- Ele define um baixo nível consistente de especificidade para os seletores de estilo.
 
 ## Como funciona
 
 Um nome de classe BEM inclui até três partes.
 
-* Bloco: o elemento pai mais externo do componente é definido como o bloco.
-* Elemento: dentro do componente pode haver um ou mais filhos chamados elementos.
-* Modificador: Um bloco ou elemento pode ter uma variação significada por um modificador.
+- Bloco: o elemento pai mais externo do componente é definido como o bloco.
+- Elemento: dentro do componente pode haver um ou mais filhos chamados elementos.
+- Modificador: Um bloco ou elemento pode ter uma variação significada por um modificador.
 
 Se todos os três forem usados em um nome, seria algo como isto:
 
@@ -33,11 +33,12 @@ Após essa breve introdução, vamos ver alguns exemplos específicos.
 Componentes simples podem empregar apenas um único elemento e, portanto, uma única classe que seria o bloco.
 
 ```html
-<button class=”btn”></button>
+<button class="”btn”"></button>
 
 <style>
-  .btn {}
-</style>  
+  .btn {
+  }
+</style>
 ```
 
 ### Componente com um modificador
@@ -55,8 +56,8 @@ Um componente pode ter uma variação. A variação deve ser implementada com um
   }
   .btn--secondary {
     color: green;
-  }  
-</style>  
+  }
+</style>
 ```
 
 Não use a classe modificadora sozinha. A classe modificadora visa aumentar, não substituir, a classe base.
@@ -69,8 +70,8 @@ Não use a classe modificadora sozinha. A classe modificadora visa aumentar, nã
   .btn--secondary {
     display: inline-block;
     color: green;
-  }  
-</style> 
+  }
+</style>
 ```
 
 ### Componentes com elementos
@@ -82,26 +83,32 @@ Um dos propósitos por trás do BEM é manter a especificidade baixa e consisten
 ```html
 <!-- DO THIS -->
 <figure class="photo">
-  <img class="photo__img" src="me.jpg">
+  <img class="photo__img" src="me.jpg" />
   <figcaption class="photo__caption">Look at me!</figcaption>
 </figure>
 
 <style>
-  .photo { } /* Specificity of 10 */
-  .photo__img { } /* Specificity of 10 */
-  .photo__caption { } /* Specificity of 10 */
+  .photo {
+  } /* Specificity of 10 */
+  .photo__img {
+  } /* Specificity of 10 */
+  .photo__caption {
+  } /* Specificity of 10 */
 </style>
 
 <!-- DON'T DO THIS -->
 <figure class="photo">
-  <img src="me.jpg">
+  <img src="me.jpg" />
   <figcaption>Look at me!</figcaption>
 </figure>
 
 <style>
-  .photo { } /* Specificity of 10 */
-  .photo img { } /* Specificity of 11 */
-  .photo figcaption { } /* Specificity of 11 */
+  .photo {
+  } /* Specificity of 10 */
+  .photo img {
+  } /* Specificity of 11 */
+  .photo figcaption {
+  } /* Specificity of 11 */
 </style>
 ```
 
@@ -110,7 +117,7 @@ Se o seu componente tiver elementos filhos com vários níveis de profundidade, 
 ```html
 <!-- DO THIS -->
 <figure class="photo">
-  <img class="photo__img" src="me.jpg">
+  <img class="photo__img" src="me.jpg" />
   <figcaption class="photo__caption">
     <blockquote class="photo__quote">
       Look at me!
@@ -119,28 +126,36 @@ Se o seu componente tiver elementos filhos com vários níveis de profundidade, 
 </figure>
 
 <style>
-  .photo { }
-  .photo__img { }
-  .photo__caption { }
-  .photo__quote { }
+  .photo {
+  }
+  .photo__img {
+  }
+  .photo__caption {
+  }
+  .photo__quote {
+  }
 </style>
-
 
 <!-- DON'T DO THIS -->
 <figure class="photo">
-  <img class="photo__img" src="me.jpg">
+  <img class="photo__img" src="me.jpg" />
   <figcaption class="photo__caption">
-    <blockquote class="photo__caption__quote"> <!-- never include more than one child element in a class name -->
+    <blockquote class="photo__caption__quote">
+      <!-- never include more than one child element in a class name -->
       Look at me!
     </blockquote>
   </figcaption>
 </figure>
 
 <style>
-  .photo { }
-  .photo__img { }
-  .photo__caption { }
-  .photo__caption__quote { }
+  .photo {
+  }
+  .photo__img {
+  }
+  .photo__caption {
+  }
+  .photo__caption__quote {
+  }
 </style>
 ```
 
@@ -150,8 +165,10 @@ Em alguns casos, convém variar um único elemento em um componente. Nesses caso
 
 ```html
 <figure class="photo">
-  <img class="photo__img photo__img--framed" src="me.jpg">
-  <figcaption class="photo__caption photo__caption--large">Look at me!</figcaption>
+  <img class="photo__img photo__img--framed" src="me.jpg" />
+  <figcaption class="photo__caption photo__caption--large">
+    Look at me!
+  </figcaption>
 </figure>
 
 <style>
@@ -171,24 +188,30 @@ Se você estiver consistentemente modificando elementos do mesmo componente junt
 ```html
 <!-- DO THIS -->
 <figure class="photo photo--highlighted">
-  <img class="photo__img" src="me.jpg">
+  <img class="photo__img" src="me.jpg" />
   <figcaption class="photo__caption">Look at me!</figcaption>
 </figure>
 
 <style>
-  .photo--highlighted .photo__img { }
-  .photo--highlighted .photo__caption { }
+  .photo--highlighted .photo__img {
+  }
+  .photo--highlighted .photo__caption {
+  }
 </style>
 
 <!-- DON'T DO THIS -->
 <figure class="photo">
-  <img class="photo__img photo__img--highlighted" src="me.jpg">
-  <figcaption class="photo__caption photo__caption--highlighted">Look at me!</figcaption>
+  <img class="photo__img photo__img--highlighted" src="me.jpg" />
+  <figcaption class="photo__caption photo__caption--highlighted">
+    Look at me!
+  </figcaption>
 </figure>
 
 <style>
-  .photo__img--highlighted { }
-  .photo__caption--highlighted { }
+  .photo__img--highlighted {
+  }
+  .photo__caption--highlighted {
+  }
 </style>
 ```
 
@@ -203,9 +226,12 @@ Os nomes BEM intencionalmente usam sublinhados duplos e hífens duplos em vez de
 </div>
 
 <style>
-  .some-thesis { }
-  .some-thesis--fast-read { }
-  .some-thesis__some-element { }
+  .some-thesis {
+  }
+  .some-thesis--fast-read {
+  }
+  .some-thesis__some-element {
+  }
 </style>
 
 <!-- DON'T DO THIS -->
@@ -215,9 +241,12 @@ Os nomes BEM intencionalmente usam sublinhados duplos e hífens duplos em vez de
 </div>
 
 <style>
-  .somethesis { }
-  .somethesis--fastread { }
-  .somethesis__someelement { }
+  .somethesis {
+  }
+  .somethesis--fastread {
+  }
+  .somethesis__someelement {
+  }
 </style>
 ```
 
