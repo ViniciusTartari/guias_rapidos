@@ -20,5 +20,6 @@
 - Guia (quase) completo de SCSS-Sass (ptBR)
 - BEM - Padrão de convenção de nomenclatura CSS (ptBR)
 - Go Programming Language Guide (EN)
+- Princípios S.O.L.I.D. utilizando Typescript (ptBR)
 
 ---
