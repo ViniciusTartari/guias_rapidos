@@ -1,16 +1,24 @@
-<h1>GUIAS RÁPIDOS
+# GUIAS RÁPIDOS - ptBR e EN
 
-<h2>Informações do repositório:
+## Informações do repositório
 
 - Guias rápidos sobre diversos assuntos voltados à programação;
 - Vinicius Tartari - Engenheiro de computação;
 
 ---
 
-Lista de guias:
+## Repository information
 
-- Técnicas de abreviação de códigos JavaScript;
-- Guia (quase) completo de SCSS-Sass
+- Quick guides on various programming subjects;
+- Vinicius Tartari - Computer engineer;
+
 ---
 
-_Última atualização em: 30 de agosto de 2019_
+## Lista de guias
+
+- Técnicas de abreviação de códigos JavaScript (ptBR)
+- Guia (quase) completo de SCSS-Sass (ptBR)
+- BEM - Padrão de convenção de nomenclatura CSS (ptBR)
+- Go Programming Language Guide (EN)
+
+---
