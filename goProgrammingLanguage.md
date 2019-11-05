@@ -104,15 +104,13 @@ My basic guide to go programming language - Vinicius Tartari
 - Untyped constants work like literals
   - Can interoperate with similar types
 
-### **Enumerated**
-
-#### **Constants**
+#### **Enumerated constants**
 
 - Special symbol _iota_ allows related constants to be created easily
 - _Iota_ starts at 0 in each const block and increments by one
 - Watch out of constant values that match zero values for variables
 
-#### **Expressions**
+#### **Enumerated expressions**
 
 - Operations that can be determined at compile time are allowed
   - Arithmetic
@@ -298,7 +296,7 @@ My basic guide to go programming language - Vinicius Tartari
     } ()
     ```
 
-* Assigned to a variable or passed as an argument to a function
+- Assigned to a variable or passed as an argument to a function
 
   ```go
   a := func() {
@@ -372,12 +370,12 @@ bwc := wc.(*BufferedWriterCloser)
 ```go
 var i interface{} = 0
 switch i.(type){
-    case int:
-    	fmt.Println("i is an integer")
-    case string:
-    	fmt.Println("i is a string")
-    default:
-    	fmt.Println("I don't know what i is")
+  case int:
+    fmt.Println("i is an integer")
+  case string:
+    fmt.Println("i is a string")
+  default:
+    fmt.Println("I don't know what i is")
 }
 ```
 
