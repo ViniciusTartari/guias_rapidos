@@ -119,9 +119,7 @@ Se o seu componente tiver elementos filhos com vários níveis de profundidade, 
 <figure class="photo">
   <img class="photo__img" src="me.jpg" />
   <figcaption class="photo__caption">
-    <blockquote class="photo__quote">
-      Look at me!
-    </blockquote>
+    <blockquote class="photo__quote">Look at me!</blockquote>
   </figcaption>
 </figure>
 

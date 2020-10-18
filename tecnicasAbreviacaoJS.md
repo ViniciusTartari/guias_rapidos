@@ -208,11 +208,11 @@ function sayHello(name) {
   console.log("Hello", name);
 }
 
-setTimeout(function() {
+setTimeout(function () {
   console.log("Loaded");
 }, 2000);
 
-list.forEach(function(item) {
+list.forEach(function (item) {
   console.log(item);
 });
 ```
@@ -220,11 +220,11 @@ list.forEach(function(item) {
 Abreviação:
 
 ```javascript
-sayHello = name => console.log("Hello", name);
+sayHello = (name) => console.log("Hello", name);
 
 setTimeout(() => console.log("Loaded"), 2000);
 
-list.forEach(item => console.log(item));
+list.forEach((item) => console.log(item));
 ```
 
 ## 10. Abreviação de retorno implícito
@@ -414,7 +414,7 @@ Forma longa:
 const pets = [
   { type: "Dog", name: "Max" },
   { type: "Cat", name: "Karl" },
-  { type: "Dog", name: "Tommy" }
+  { type: "Dog", name: "Tommy" },
 ];
 
 function findDog(name) {
@@ -429,7 +429,7 @@ function findDog(name) {
 Abreviação:
 
 ```javascript
-pet = pets.find(pet => pet.type === "Dog" && pet.name === "Tommy");
+pet = pets.find((pet) => pet.type === "Dog" && pet.name === "Tommy");
 console.log(pet); // { type: 'Dog', name: 'Tommy' }
 ```
 
@@ -453,11 +453,11 @@ Abreviação:
 // object validation rules
 const schema = {
   first: {
-    required: true
+    required: true,
   },
   last: {
-    required: true
-  }
+    required: true,
+  },
 };
 
 // universal validation function

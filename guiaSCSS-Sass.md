@@ -4,13 +4,11 @@ Neste guia, **Sassy**, **Sass** e **Scss** se referirão aproximadamente à mesm
 
 `Nota: Todo o código Sass/SCSS é compilado de volta ao CSS padrão para que o navegador possa realmente entender e renderizar os resultados. Atualmente, os navegadores não têm suporte direto para Sass/SCSS ou qualquer outro pré-processamento CSS, nem a especificação CSS padrão fornece alternativas para recursos similares (ainda).`
 
- 
-
 ## Let's begin!
 
 Comecemos pelos princípios básicos do SCSS: **O que o Sass/SCSS pode fazer que o CSS Vanilla não pode?**
 
-### 1. Regras aninhadas 
+### 1. Regras aninhadas
 
 Aninhe suas propriedades CSS em vários conjuntos de colchetes. Isso torna seu código CSS um pouco mais limpo e intuitivo.
 
@@ -24,27 +22,23 @@ Você pode adicionar, subtrair, multiplicar e dividir valores CSS. Claro que o C
 
 ### 4. Funções
 
-Sass permite criar definições de CSS como funções reutilizáveis. 
+Sass permite criar definições de CSS como funções reutilizáveis.
 
 ### 5. Trigonometria
 
 Entre muitos dos seus recursos básicos, o SCSS permite que você escreva suas próprias funções, como seno e cosseno, inteiramente utilizando apenas a sintaxe Sass/SCSS, como faria em outras linguagens, como JavaScript, que nos ajudam a calcular o movimento de barras de progresso circulares ou criar efeitos de ondas animadas, por exemplo.
 
-### 6. Instruções *for-loops*, *while-loops*, *if-else*
+### 6. Instruções _for-loops_, _while-loops_, _if-else_
 
 Você pode escrever CSS utilizando instruções familiares de controle e fluxo de código semelhantes a outras linguagens. O Sass controle apenas como a propriedade e os valores foram gerados. Não é uma linguagem em tempo real, apenas um pré-processador.
 
 ### 7. Mixins
 
-Crie um conjunto de propriedades CSS uma vez e reutilize-as ou "misture" junto com quaisquer novas definições. Na prática, você pode usar mixins para criar temas separados para o mesmo layout, por exemplo. 
-
-
+Crie um conjunto de propriedades CSS uma vez e reutilize-as ou "misture" junto com quaisquer novas definições. Na prática, você pode usar mixins para criar temas separados para o mesmo layout, por exemplo.
 
 ## Sass pré-processador
 
 Sass não é dinâmico. Você não poderá gerar ou animar propriedades e valores de CSS em tempo real. Mas você pode gerá-los de uma maneira mais eficiente e deixar que as propriedades padrão (animação CSS, por exemplo) sejam recuperadas a partir daí.
-
-
 
 ## Nova sintaxe
 
@@ -72,7 +66,7 @@ sass-converter style.sass style.scss
 sass-converter style.scss style.sass
 ```
 
-**Sass** foi a primeira especificação para o **Sassy CSS** com a extensão de arquivo .sass. O desenvolvimento começou em 2006, porém, mais tarde, uma sintaxe alternativa foi desenvolvida com a extensão **.scss**, que alguns desenvolvedores acreditam ser a melhor. Atualmente, não há suporte imediato ao **Sassy CSS** em nenhum navegador, independentemente da sintaxe ou extensão do Sass que você usaria. 
+**Sass** foi a primeira especificação para o **Sassy CSS** com a extensão de arquivo .sass. O desenvolvimento começou em 2006, porém, mais tarde, uma sintaxe alternativa foi desenvolvida com a extensão **.scss**, que alguns desenvolvedores acreditam ser a melhor. Atualmente, não há suporte imediato ao **Sassy CSS** em nenhum navegador, independentemente da sintaxe ou extensão do Sass que você usaria.
 
 ### Superset
 
@@ -94,11 +88,9 @@ Você pode tentar sobreescrever um nome de variável. Se `!default` for anexado 
 
 ```scss
 #container {
-    content: $text;
+  content: $text;
 }
 ```
-
-
 
 ## Regras aninhadas
 
@@ -107,13 +99,13 @@ Com o CSS padrão, os elementos aninhados são acessados via caracteres de espa�
 ```css
 /* Standard CSS */
 #A {
-    color: red;
+  color: red;
 }
 #A #B {
-    color: green;
+  color: green;
 }
 #A #B #C p {
-    color: blue;
+  color: blue;
 }
 ```
 
@@ -122,13 +114,13 @@ O código aceima pode ser expresso com as regras aninhadas da Sassy da seguinte 
 ```scss
 /* Nested Rules */
 #A {
-    color: red;
-    #B {
-        color: green;
-        #C p {
-            color: blue;
-        }
+  color: red;
+  #B {
+    color: green;
+    #C p {
+      color: blue;
     }
+  }
 }
 ```
 
@@ -144,37 +136,43 @@ O Sassy CSS adiciona a diretiva de caractere `&`.
 
 ```scss
 #P {
-    color: black;
-    a {
-        font-weight: bold;
-        &:hover{
-            color: red;
-        }
+  color: black;
+  a {
+    font-weight: bold;
+    &:hover {
+      color: red;
     }
+  }
 }
 ```
 
 O código SCSS acima, convertido em CSS fica:
 
 ```css
-#P { color: black; }
-#P a { font-weight: bold; }
-#P a:hover { color: red; }
+#P {
+  color: black;
+}
+#P a {
+  font-weight: bold;
+}
+#P a:hover {
+  color: red;
+}
 ```
 
 ## Mixins
 
-Um mixin é definido pela diretiva @mixin (ou também conhecida como regra do mixin). 
+Um mixin é definido pela diretiva @mixin (ou também conhecida como regra do mixin).
 
 ```scss
 @mixin flexible() {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .centered-elements {
-    @include flexible();
-    border: 1px solid gray;
+  @include flexible();
+  border: 1px solid gray;
 }
 ```
 
@@ -185,12 +183,12 @@ Agora, toda vez que você aplica a classe `.centered-elements` a um elemento HTM
 Alguns recursos experimentais (como o baseado em -webkit) ou o Firefox (baseado em -moz) funcionam apenas nos navegadores em que aparecem. Os mixins são úteis na definição de propriedades CSS independentes do navegador em uma classe. Por exemplo, se você precisar rotacionar um elemento em navegadores baseados no Webkit, bem como nos outros, poderá criar este mixin que usa o argumento `$degree`:
 
 ```scss
-@mixin rotate ($degree) {
-    -webkit-transform: rotate($degree); //webkit-based
-    -moz-transform: rotate($degree); 	//Firefox
-    -ms-transform: rotate($degree);		//Internet Explorer
-    -o-transform: rotate($degree);		//Opera
-    transform: rotate($degree);			//Standand CSS
+@mixin rotate($degree) {
+  -webkit-transform: rotate($degree); //webkit-based
+  -moz-transform: rotate($degree); //Firefox
+  -ms-transform: rotate($degree); //Internet Explorer
+  -o-transform: rotate($degree); //Opera
+  transform: rotate($degree); //Standand CSS
 }
 ```
 
@@ -198,7 +196,7 @@ Agora é possível utilizar esse mixin com @include nas definições de classe C
 
 ```scss
 .rotate-element {
-    @include rotate(45deg);
+  @include rotate(45deg);
 }
 ```
 
@@ -210,9 +208,9 @@ Semelhante à sintaxe CSS padrão, você pode adicionar, subtrair, multiplicas e
 
 ```scss
 p {
-    font-size: 10px + 2em; 	//*error: imcompatible units
-    font-size: 10px + 6px; 	//16px
-    font-size: 10px + 6;   	//16px
+  font-size: 10px + 2em; //*error: imcompatible units
+  font-size: 10px + 6px; //16px
+  font-size: 10px + 6; //16px
 }
 ```
 
@@ -220,8 +218,8 @@ p {
 
 ```scss
 div {
-    height: 12% - 2%;
-    margin: 4rem - 1;
+  height: 12% - 2%;
+  margin: 4rem - 1;
 }
 ```
 
@@ -229,11 +227,11 @@ div {
 
 ```scss
 p {
-    width: 10px * 10px;				//*error;
-    width: 10px * 10;				//100px;
-    width: 1px * 5 + 5px;			//10px;
-    width: 5 * (5px + 5px);			//50px;
-    width: 5px + (10px / 2) * 3;	//20px;
+  width: 10px * 10px; //*error;
+  width: 10px * 10; //100px;
+  width: 1px * 5 + 5px; //10px;
+  width: 5 * (5px + 5px); //50px;
+  width: 5px + (10px / 2) * 3; //20px;
 }
 ```
 
@@ -242,19 +240,21 @@ p {
 A divisão é um pouco complicada. Como no CSS padrão, o símbolo da divisão é reservado para uso em conjunto com outras propriedades de abreviação. Por exemplo, fonte: **24/32px** define uma fonte com tamanho de **25px** e altura de linha de **32px**. Mas o SCSS afirma ser compatível com o CSS padrão.
 
 ```css
-p { font: 16px / 24px Arial, sans-serif; }
+p {
+  font: 16px / 24px Arial, sans-serif;
+}
 ```
 
 No CSS padrão, o símbolo de divisão aparecer na propriedade como abreviação, mas não é utilizado para realmente dividir valores. Então, como Sass lida com a divisão?
 
 ```scss
 p {
-    top: 16px / 24px;			//Saidas como CSS padrao
-    top: (16px / 24px);			//Faz a divisao (quando parenteses sao adicionados)
-    top: #{$var1} / #{$var2};	//Usa interpolacao, saida como CSS
-    top: $var1 / $var2;			//Faz a divisao
-    top: random(4) / 5;			//Faz a divisao (quando par com funcao)
-    top: 2px / 4px + 3px		//Faz a divisao (quando parte da aritmetica)
+  top: 16px / 24px; //Saidas como CSS padrao
+  top: (16px / 24px); //Faz a divisao (quando parenteses sao adicionados)
+  top: #{$var1} / #{$var2}; //Usa interpolacao, saida como CSS
+  top: $var1 / $var2; //Faz a divisao
+  top: random(4) / 5; //Faz a divisao (quando par com funcao)
+  top: 2px / 4px + 3px; //Faz a divisao (quando parte da aritmetica)
 }
 ```
 
@@ -266,38 +266,38 @@ O resto calcula o restante da operação de divisão. Neste exemplo, vamos ver c
 
 ```scss
 @mixin zebra() {
-    @for $i from 1 through 7 {
-        @if ($i % 2 == 1){
-            .stripe-#{$i} {
-                background-color: black;
-                color: white;
-            }
-        }
+  @for $i from 1 through 7 {
+    @if ($i % 2 == 1) {
+      .stripe-#{$i} {
+        background-color: black;
+        color: white;
+      }
     }
+  }
 }
-* { @include zebra (); }
+* {
+  @include zebra();
+}
 ```
 
 Esse exemplo requer tais elementos HTML:
 
 ```html
-<div class = "stripe-1">zebra</div>
-<div class = "stripe-2">zebra</div>
-<div class = "stripe-3">zebra</div>
-<div class = "stripe-4">zebra</div>
-<div class = "stripe-5">zebra</div>
-<div class = "stripe-6">zebra</div>
-<div class = "stripe-7">zebra</div>
+<div class="stripe-1">zebra</div>
+<div class="stripe-2">zebra</div>
+<div class="stripe-3">zebra</div>
+<div class="stripe-4">zebra</div>
+<div class="stripe-5">zebra</div>
+<div class="stripe-6">zebra</div>
+<div class="stripe-7">zebra</div>
 ```
-
-
 
 ## Operadores de comparação
 
 | Operador | Exemplo | Descrição                                |
 | -------- | ------- | ---------------------------------------- |
 | ==       | x == y  | Retorna true se x e y forem iguais       |
-| !=       | x  != y | Retorna true se x e y não forem iguais   |
+| !=       | x != y  | Retorna true se x e y não forem iguais   |
 | >        | x > y   | Retorna true se x for maior que y        |
 | <        | x < y   | Retorna true se x for menos que y        |
 | >=       | x >= y  | Retorna true se x for maior ou igual a y |
@@ -305,26 +305,26 @@ Esse exemplo requer tais elementos HTML:
 
 Como utilizar os operadores de comparação na prática? Podem ser utilizados para escrever um @mixin que escolhe o tamanho do preenchimento se for maior que a margem:
 
- ```scss
+```scss
 @mixin spacing($padding, $margin) {
-    @if ($padding > $margin) {
-        padding: $padding;
-    } @else {
-        padding: $margin;
-    }
+  @if ($padding > $margin) {
+    padding: $padding;
+  } @else {
+    padding: $margin;
+  }
 }
 .container {
-    @include spacing(10px, 20px);
+  @include spacing(10px, 20px);
 }
- ```
+```
 
 Após a compilação, o seguinte código CSS será gerado:
 
 ```css
-.container { padding: 20px; }
+.container {
+  padding: 20px;
+}
 ```
-
-
 
 ## Operadores lógicos
 
@@ -336,14 +336,14 @@ Após a compilação, o seguinte código CSS será gerado:
 
 ```scss
 @mixin button-color($height, $width) {
-    @if(($height < $width) and ($width >= 35px)) {
-        background-color: blue;
-    } @else {
-        background-color: green;
-    }
+  @if (($height < $width) and ($width >= 35px)) {
+    background-color: blue;
+  } @else {
+    background-color: green;
+  }
 }
 .button {
-    @include button-color(20px, 30px)
+  @include button-color(20px, 30px);
 }
 ```
 
@@ -355,7 +355,7 @@ Em alguns casos, é possível adicionar strings a valores CSS, desde que a strin
 
 ```scss
 p {
-    font: 50px Ari + "al";	//Compila como 50px Arial
+  font: 50px Ari + "al"; //Compila como 50px Arial
 }
 ```
 
@@ -363,7 +363,7 @@ O exemplo a seguir, seguindo a mesma ideia do anterior mas escrito de outra mane
 
 ```scss
 p {
-    font: "50px " + Arial;	//Error
+  font: "50px " + Arial; //Error
 }
 ```
 
@@ -371,7 +371,7 @@ Você pode adicionar cadeias de caracteres sem aspas duplas, desde que a string 
 
 ```scss
 p:after {
-    content: "Quoted string with " + added tail.;
+  content: "Quoted string with " + added tail.;
 }
 ```
 
@@ -379,7 +379,7 @@ Possível solução?
 
 ```scss
 p:after {
-    content: "Quoted string with " + "added tail.";
+  content: "Quoted string with " + "added tail.";
 }
 ```
 
@@ -387,7 +387,7 @@ Também é possível adicionar números e strings:
 
 ```scss
 p:after {
-    content: "Long " + 12345678 + " Added";
+  content: "Long " + 12345678 + " Added";
 }
 ```
 
@@ -414,16 +414,24 @@ if (false, 1px, 2px) => 2px;
 ```scss
 /* Usando a diretiva @if */
 p {
-    @if 1 + 1 == 2 { border: 1px solid; }
-    @if 7 < 5	   { border: 2px dotted; }
-    @if null	   { border: 3px double; }
+  @if 1 + 1 == 2 {
+    border: 1px solid;
+  }
+  @if 7 < 5 {
+    border: 2px dotted;
+  }
+  @if null {
+    border: 3px double;
+  }
 }
 ```
 
 Essa instrução compila como:
 
 ```css
-p { border: 1px solid; }
+p {
+  border: 1px solid;
+}
 ```
 
 Um outro exemplo utilizando instruções if:
@@ -434,21 +442,24 @@ $type: river;
 
 /* Printa divs azuis se variavel for setada para river */
 div {
-    @if $type == river {
-        color: blue;
-    }
+  @if $type == river {
+    color: blue;
+  }
 }
 
 /* Colorizacao condicional no paragrafo */
 p {
-    @if $type == tree { color: green; }
-    @else if $type == river { color: blue; }
-    @else if $type == dirt { color: brown; }
+  @if $type == tree {
+    color: green;
+  } @else if $type == river {
+    color: blue;
+  } @else if $type == dirt {
+    color: brown;
+  }
 }
 ```
 
 ### Checando existência de if pai
-
 
 O símbolo AND & selecionará o elemento pai, se existir, ou retorne **null** caso contrário. Portanto, ele pode ser usado em combinação com uma diretiva **@if**.
 
@@ -457,14 +468,18 @@ Nos exemplos a seguir, vamos ver como podemos criar estilos CSS condicionais com
 ```scss
 /* Checando existencia de if pai */
 @mixin does-parent-exist {
-    @if & {
-        &:hover { color: blue; }
-    } @else {
-        a { color: blue; }
+  @if & {
+    &:hover {
+      color: blue;
     }
+  } @else {
+    a {
+      color: blue;
+    }
+  }
 }
 p {
-    @include does-parent-exist();
+  @include does-parent-exist();
 }
 ```
 
@@ -476,18 +491,30 @@ A regra **@for** é utilizada para repetir definições de CSS várias vezes seg
 
 ```scss
 @for $i from 1 through 5 {
-    .definition-#{$i} { width: 10px * $i; }
+  .definition-#{$i} {
+    width: 10px * $i;
+  }
 }
 ```
 
 Que após compilação:
 
 ```css
-.definition-1 { width: 10px; }
-.definition-2 { width: 20px; }
-.definition-3 { width: 30px; }
-.definition-4 { width: 40px; }
-.definition-5 { width: 50px; }
+.definition-1 {
+  width: 10px;
+}
+.definition-2 {
+  width: 20px;
+}
+.definition-3 {
+  width: 30px;
+}
+.definition-4 {
+  width: 40px;
+}
+.definition-5 {
+  width: 50px;
+}
 ```
 
 ### @each
@@ -496,9 +523,9 @@ A regra **@each** pode ser utilizada para iterar sobre uma lista de valores.
 
 ```scss
 @each $animal in platypus, lion, sheep, dove {
-    .#{$animal}-icon {
-        background-image: url("/images/#{$animal}.png");
-	}
+  .#{$animal}-icon {
+    background-image: url("/images/#{$animal}.png");
+  }
 }
 ```
 
@@ -506,16 +533,16 @@ Esse código, após compilação:
 
 ```css
 .platypus-icon {
-    background-image: url("/images/platypus.png");
+  background-image: url("/images/platypus.png");
 }
 .lion-icon {
-    background-image: url("/images/lion.png");
+  background-image: url("/images/lion.png");
 }
 .sheep-icon {
-    background-image: url("/images/sheep.png");
+  background-image: url("/images/sheep.png");
 }
 .dove-icon {
-    background-image: url("/images/dove.png");
+  background-image: url("/images/dove.png");
 }
 ```
 
@@ -524,19 +551,31 @@ Esse código, após compilação:
 ```scss
 $index: 5;
 @while $index >0 {
-    .element-#{$index} { width: 10px * $index; }
-    $index: $index - 1;
+  .element-#{$index} {
+    width: 10px * $index;
+  }
+  $index: $index - 1;
 }
 ```
 
 Após compilação:
 
 ```css
-.element-5 { width: 50px; }
-.element-4 { width: 40px; }
-.element-3 { width: 30px; }
-.element-2 { width: 20px; }
-.element-1 { width: 10px; }
+.element-5 {
+  width: 50px;
+}
+.element-4 {
+  width: 40px;
+}
+.element-3 {
+  width: 30px;
+}
+.element-2 {
+  width: 20px;
+}
+.element-1 {
+  width: 10px;
+}
 ```
 
 ## Funções Sass
@@ -545,13 +584,13 @@ Utilizando Sass/SCSS, você pode definir funções como em qualquer outra lingua
 
 ```scss
 @function three-hundred-px() {
-    @return 300px;
+  @return 300px;
 }
 .name {
-    width: three-hundred-px();
-    border: 1px solid gray;
-    display: block;
-    position: absolute;
+  width: three-hundred-px();
+  border: 1px solid gray;
+  display: block;
+  position: absolute;
 }
 ```
 
@@ -580,7 +619,9 @@ Você pode escrever suas próprias funções trigonométricas no Sass.
 Vamos considerar a função **rad()**. Para sua definição, é necessário **pi()**.
 
 ```scss
-@function pi() { @return 3.1459265359; }
+@function pi() {
+  @return 3.1459265359;
+}
 ```
 
 Escrever funções no Sass/SCSS é muito parecido com JavaScript, por exemplo.
@@ -589,18 +630,17 @@ Escrever funções no Sass/SCSS é muito parecido com JavaScript, por exemplo.
 
 ```scss
 @function pow($number, $exp) {
-    $value: 1;
-    @if $exp > 0 {
-        @for $i from 1 through $exp {
-            $value: $value * $number;
-        }
+  $value: 1;
+  @if $exp > 0 {
+    @for $i from 1 through $exp {
+      $value: $value * $number;
     }
-    @else if $exp < 0 {
-        @for $i from 1 through -$exp {
-            $value: $value / $number;
-        }
+  } @else if $exp < 0 {
+    @for $i from 1 through -$exp {
+      $value: $value / $number;
     }
-    @return $value;
+  }
+  @return $value;
 }
 ```
 
@@ -608,13 +648,13 @@ Escrever funções no Sass/SCSS é muito parecido com JavaScript, por exemplo.
 
 ```scss
 @function rad($angle) {
-    $unit: unit($angle);
-    $unitless: $angle / ($angle * 0 + 1);
-    //Se o angulo for em 'deg', converte para radianos
-    @if $unit == deg {
-        $unitless: $unitless / 180 * pi();
-    }
-    @return $unitless;
+  $unit: unit($angle);
+  $unitless: $angle / ($angle * 0 + 1);
+  //Se o angulo for em 'deg', converte para radianos
+  @if $unit == deg {
+    $unitless: $unitless / 180 * pi();
+  }
+  @return $unitless;
 }
 ```
 
@@ -640,30 +680,33 @@ Escrever funções no Sass/SCSS é muito parecido com JavaScript, por exemplo.
 @import "compass/css3";
 
 .atom {
-    text-align: center;
-    border-radius: 20px;
-    height: 40px;
-    width: 40px;
-    margin: 1px;
-    display: inline-block;
-    border: 10px #1893e7 solid;
-    /*Aplicando animacao de oscilacao*/
-    animation: oscillate 3s ease-in-out infinite;
-    /*Criando 15 classes para cada uma das 15 caixas*/
-    @for $i from 1 through 15 {
-        &:nth-child(#{$i}) {
-            animation-delay: ( #{sin(.4) * ($i)}s );
-        }
+  text-align: center;
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+  margin: 1px;
+  display: inline-block;
+  border: 10px #1893e7 solid;
+  /*Aplicando animacao de oscilacao*/
+  animation: oscillate 3s ease-in-out infinite;
+  /*Criando 15 classes para cada uma das 15 caixas*/
+  @for $i from 1 through 15 {
+    &:nth-child(#{$i}) {
+      animation-delay: (#{sin(0.4) * ($i)}s);
     }
+  }
 }
 @keyframes oscillate {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(200px); }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(200px);
+  }
 }
 ```
 
 ```html
 <!-- Repete esse elemento 15x -->
-<div class = "atom"></div>
+<div class="atom"></div>
 ```
-
