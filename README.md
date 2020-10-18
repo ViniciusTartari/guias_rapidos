@@ -16,12 +16,12 @@
 
 ## Lista de guias / Guides List
 
-- [Técnicas de abreviação de códigos JavaScript (ptBR)](tecnicasAbreviacaoJS)
-- [Guia (quase) completo de SCSS-Sass (ptBR)](guiaSCSS-Sass)
-- [BEM - Padrão de convenção de nomenclatura CSS (ptBR)](BEMnomenclaturaCSS)
-- [Go Programming Language Guide (EN)](goProgrammingLanguage)
-- [Princípios S.O.L.I.D. utilizando Typescript (ptBR)](SOLIDPrincipiosTS)
-- [What is a REST API? (EN)](API_RESTful)
-- [Guia shell script (ptBR)](guiaShellScript)
+- Técnicas de abreviação de códigos JavaScript (ptBR)
+- Guia (quase) completo de SCSS-Sass (ptBR)
+- BEM - Padrão de convenção de nomenclatura CSS (ptBR)
+- Go Programming Language Guide (EN)
+- Princípios S.O.L.I.D. utilizando Typescript (ptBR)
+- What is a REST API? (EN)
+- Guia shell script (ptBR)
 
 ---
