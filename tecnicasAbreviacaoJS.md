@@ -1,6 +1,42 @@
-# Técnicas de abreviação de códigos JavaScript
+# Técnicas de abreviação de códigos JavaScript + tips
 
-Guia rápido de técnicas de abreviação de código JavaScript, que inclui as formas longas de cada uma, para melhor entendimento.
+Guia rápido de técnicas de abreviação de código JavaScript, que inclui as formas longas de cada uma, para melhor entendimento, e também pequenas dicas de código.
+
+- [Técnicas de abreviação de códigos JavaScript + tips](#técnicas-de-abreviação-de-códigos-javascript--tips)
+  - [1. Operador ternário](#1-operador-ternário)
+  - [2. Abreviação de declaração condicional](#2-abreviação-de-declaração-condicional)
+  - [3. Abreviação de declaração de variáveis](#3-abreviação-de-declaração-de-variáveis)
+  - [4. Abreviação de condicional `if`](#4-abreviação-de-condicional-if)
+  - [5. Abreviação de loop `for`](#5-abreviação-de-loop-for)
+  - [6. Abreviação de definição condicional](#6-abreviação-de-definição-condicional)
+  - [7. Base decimal exponencial](#7-base-decimal-exponencial)
+  - [8. Abreviação de propriedades de objetos](#8-abreviação-de-propriedades-de-objetos)
+  - [9. Abreviação de Arrow functions](#9-abreviação-de-arrow-functions)
+  - [10. Abreviação de retorno implícito](#10-abreviação-de-retorno-implícito)
+  - [11. Parâmetros com valor default](#11-parâmetros-com-valor-default)
+  - [12. Template literal](#12-template-literal)
+  - [13. Desestruturação de atribuição](#13-desestruturação-de-atribuição)
+  - [14. String multilinha](#14-string-multilinha)
+  - [15. Abreviação para operador de propagação](#15-abreviação-para-operador-de-propagação)
+  - [16. Abreviação para parâmetros obrigatórios](#16-abreviação-para-parâmetros-obrigatórios)
+  - [17. Abreviação para Array.find](#17-abreviação-para-arrayfind)
+  - [18. Object [key] Abreviação](#18-object-key-abreviação)
+  - [19. Abreviação de arredondamento](#19-abreviação-de-arredondamento)
+  - [20. Abreviação de exponenciação](#20-abreviação-de-exponenciação)
+  - [21. Convertendo string para número](#21-convertendo-string-para-número)
+  - [22. Atribuição de propriedade do objeto](#22-atribuição-de-propriedade-do-objeto)
+  - [23. Abreviação para IndexOf](#23-abreviação-para-indexof)
+  - [24. Identificando entradas de um objeto](#24-identificando-entradas-de-um-objeto)
+  - [25. Identificando valores de um objeto](#25-identificando-valores-de-um-objeto)
+  - [26. Adição condicional de propriedades para objetos](#26-adição-condicional-de-propriedades-para-objetos)
+  - [27. Checando se uma propriedade existe no objeto](#27-checando-se-uma-propriedade-existe-no-objeto)
+  - [27. Setando nome de propriedade dinamicamente](#27-setando-nome-de-propriedade-dinamicamente)
+  - [28. Desestruturação com chave dinâmica](#28-desestruturação-com-chave-dinâmica)
+  - [29. Operador a coalecência nula (Nullish Coalescing)](#29-operador-a-coalecência-nula-nullish-coalescing)
+  - [30. Encadeamento opcional](#30-encadeamento-opcional)
+  - [31. Conversão booleana usando operador '!!'](#31-conversão-booleana-usando-operador-)
+  - [32. Checando valores falsos em um vetor](#32-checando-valores-falsos-em-um-vetor)
+  - [33. "Achatando" (flattening) vetores de vetores](#33-achatando-flattening-vetores-de-vetores)
 
 ## 1. Operador ternário
 
@@ -577,7 +613,7 @@ if (arr.includes(item)) {
 }
 ```
 
-## 24. Object.entries()
+## 24. Identificando entradas de um objeto
 
 ```javascript
 const credits = { producer: "John", director: "Jane", assistant: "Peter" };
@@ -592,7 +628,7 @@ console.log(arr);
 **/
 ```
 
-## 25. Object.values()
+## 25. Identificando valores de um objeto
 
 ```javascript
 const credits = { producer: "John", director: "Jane", assistant: "Peter" };
@@ -602,4 +638,119 @@ console.log(arr);
 /** Output:
 [ 'John', 'Jane', 'Peter' ]
 **/
+```
+
+## 26. Adição condicional de propriedades para objetos
+
+```javascript
+const condition = true;
+
+const person = {
+  id: 1,
+  name: 'John Doe',
+  ...(condition && { age: 16 }),
+}
+```
+
+## 27. Checando se uma propriedade existe no objeto
+
+```javascript
+const person = { name: 'John Doe', age: 16 };
+
+console.log('age' in person);     // retorna true
+console.log('salary' in person);  // retorna false
+```
+
+## 27. Setando nome de propriedade dinamicamente
+
+```javascript
+const dynamic = 'flavour';
+
+var item = {
+  name: 'Biscuit',
+  [dynamic]: 'Chocolate',
+}
+
+console.log(item); // { name: 'Biscuit', flavour: 'Chocolate' }
+```
+
+## 28. Desestruturação com chave dinâmica
+
+```javascript
+const templates = {
+  'hello': 'Hello there',
+  'bye': 'Good bye',
+}
+
+const templateName = 'bye';
+
+const { [templateName]: template } = templates;
+
+console.log(template); // retorna 'Good bye'
+```
+
+## 29. Operador a coalecência nula (Nullish Coalescing)
+
+```javascript
+const foo = null ?? 'Hello';
+console.log(foo); // retorna 'Hello'
+
+const bar = 'Not null' ?? 'Hello'
+console.log(bar); // retorna 'Not null'
+
+const cannotBeZero = 0 || 1;
+console.log(cannotBeZero); // retorna 1
+
+// Em JS, 0 é considerado falso, mas não "null" ou "undefined"
+const canBeZero = 0 ?? 1;
+console.log(canBeZero); // retorna 0
+```
+
+## 30. Encadeamento opcional
+
+```javascript
+const book = { id: 1, title: "Title", author: null };
+
+// Geralmente acessamos dessa forma:
+console.log(book.author.age); // throws error
+console.log(book.author && book.author.age); // retorna null (sem erros)
+
+// Utilizando encadeamento opcional
+console.log(book.author?.age); // returna undefined
+```
+
+## 31. Conversão booleana usando operador '!!'
+
+```javascript
+const greeting = 'Hello there!';
+console.log(!!greeting); // retorna true
+
+const noGreeting = '';
+console.log(!!noGreeting); // retorna false
+```
+
+## 32. Checando valores falsos em um vetor
+
+```javascript
+const array = [ null, false, 'Hello', undefined, 0 ];
+
+// filtrando valores falsos
+const filtered = array.filter(Boolean);
+console.log(filtered); // retorna ['Hello']
+
+// checando se há pelo menos um valor verdadeiro
+const anyTruthy = array.some(Boolean);
+console.log(anyTruthy); // retorna true
+
+// checando se todos os valores são verdadeiros
+const allTruthy = array.every(Boolean);
+console.log(allTruthy); //retorna false
+```
+
+## 33. "Achatando" (flattening) vetores de vetores
+
+```javascript
+const array = [{ id: 1 }, [{ id: 2 }], [{ id: 3 }]];
+
+const flattedArray = array.flat(); // retorna [ { id: 1 }, { id: 2 }, { id: 3 } ]
 ```
